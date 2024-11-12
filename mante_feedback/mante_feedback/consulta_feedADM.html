@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultar Feedbacks</title>
+  <link rel="stylesheet" href="consulta_feedADM.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Consulta de Feedbacks - Pizzaria MIM COMER PIZZA</h1>
+
+    <!-- Formulário de Consulta de Feedback -->
+    <h2>Consultar Feedback</h2>
+    <form id="searchForm">
+      <!-- Filtro por nome -->
+      <label for="searchName">Nome do Cliente:</label>
+      <input type="text" id="searchName" placeholder="Nome do cliente">
+
+      <!-- Filtro por data -->
+      <label for="searchDate">Data do Feedback:</label>
+      <input type="date" id="searchDate">
+
+      <!-- Filtro de ordenação -->
+      <label for="sortBy">Ordenar por:</label>
+      <select id="sortBy">
+        <option value="dateAsc">Data - Mais antiga</option>
+        <option value="dateDesc">Data - Mais recente</option>
+        <option value="nameAsc">Nome - A a Z</option>
+        <option value="nameDesc">Nome - Z a A</option>
+      </select>
+
+      <button type="submit">Pesquisar</button>
+    </form>
+
+    <hr>
+
+    <!-- Tabela de Feedbacks -->
+    <h2>Lista de Feedbacks</h2>
+    <table id="feedbacksTable">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Data</th>
+          <th>Avaliação</th>
+          <th>Comentário</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Linhas dos feedbacks serão inseridas aqui dinamicamente -->
+      </tbody>
+    </table>
+  </div>
+  
+  <script src="consulta_feedADM.js"></script>
+
+
+</body>
+
+</html>
