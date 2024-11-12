@@ -1,61 +1,93 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  margin: 0;
-  padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px; /* Aumentei o limite de largura para acomodar melhor a tabela */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  text-align: center;
-  color: #333;
+    text-align: center;
+    color: #333;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 label {
-  font-weight: bold;
+    font-weight: bold;
+}
+
+input,
+select {
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 button {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #d92c2c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d92c2c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-button:hover {
-  background-color: #e74c3c;
-}
+    button:hover {
+        background-color: #e74c3c;
+    }
 
 table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #fff; /* Adicionando fundo branco à tabela */
 }
 
-table th,
-table td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
+    table th,
+    table td {
+        padding: 12px 15px; /* Aumentando o padding para melhorar a leitura */
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
 
-table th {
-  background-color: #f2f2f2;
+    table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f9f9f9; /* Alternando cores para as linhas */
+    }
+
+    table td {
+        word-wrap: break-word; /* Garante que o texto longo se quebre corretamente */
+    }
+
+        table td:last-child {
+            max-width: 200px; /* Limitando a largura do comentário */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; /* Evita que o texto do comentário ultrapasse o limite */
+        }
+
+hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
 }

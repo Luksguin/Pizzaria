@@ -2,49 +2,42 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro de Feedback</title>
-  <link rel="stylesheet" href="manter_feed.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Feedback</title>
+    <link rel="stylesheet" href="manter_feed.css">
 </head>
 
 <body>
-  <div class="container">
-    <h1>Deixe seu Feedback sobre a Pizzaria MIM COMER PIZZA</h1>
+    <div class="container">
+        <h1>Deixe seu Feedback sobre a Pizzaria MIM COMER PIZZA</h1>
 
-    <!-- Formulário de Inserção de Feedback -->
-    <form id="feedbackForm">
-      <label for="name">Nome do Cliente:</label>
-      <input type="text" id="name" maxlength="32" required>
+        <!-- Formulário de Inserção de Feedback -->
+        <form id="feedbackForm">
+            <label for="name">Nome do Cliente:</label>
+            <input type="text" id="name" maxlength="32" required>
 
-      <label for="date">Data do Feedback:</label>
-      <input type="date" id="date" value="" disabled> <!-- Campo desabilitado, vai ser preenchido automaticamente -->
+            <label for="date">Data do Feedback:</label>
+            <input type="date" id="date" value="" disabled> <!-- Campo desabilitado, vai ser preenchido automaticamente -->
 
-      <label for="rating">Avaliação (1 a 5):</label>
-      <select id="rating" required>
-        <option value="">Selecione uma opção</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="4">5</option>
-      </select>
+            <label for="rating">Avaliação (1 a 5):</label>
+            <select id="rating" required>
+                <option value="">Selecione uma opção</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-      <label for="feedbackOption">Comentário:</label>
-      <!-- Menu de opções ao invés de um campo de comentário -->
-      <select id="feedbackOption" required>
-        <option value="">Selecione uma opção...</option>
-        <option value="1">Ruim, não comprarei outra vez.</option>
-        <option value="2">É... talvez, se não tiver outra coisa.</option>
-        <option value="3">Bom, vou repetir.</option>
-        <option value="4">Foda. Vou recomendar.</option>
-      </select>
+            <label for="comments">Comentário:</label>
+            <textarea id="comments" rows="4" placeholder="Digite seu comentário aqui..." required></textarea>
 
-      <button type="submit">Enviar Feedback</button>
-    </form>
-  </div>
+            <button type="submit">Enviar Feedback</button>
+        </form>
+    </div>
 
-  <script src="manter_feed.js"></script>
+    <script src="manter_feed.js"></script>
 </body>
 
 </html>
