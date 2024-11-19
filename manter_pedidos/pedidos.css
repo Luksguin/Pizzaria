@@ -1,0 +1,125 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="radio"],
+textarea,
+select {
+  padding: 8px;
+  margin-top: 5px;
+  font-size: 14px;
+  width: 100%;
+}
+
+textarea {
+  height: 150px; /* Um campo maior, para não se sentir claustrofóbico */
+  resize: vertical; /* O usuário pode ajustar o tamanho, mas com classe, sem exageros */
+  width: 100%; /* Garantindo que a largura seja total, como o amor por uma boa pizza */
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #d92c2c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b52424;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
+
+td button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+td button.edit {
+  background-color: #d92c2c;
+  color: white;
+}
+
+td button.remove {
+  background-color: #d92c2c;
+  color: white;
+}
+
+textarea {
+  resize: vertical;
+  width: 100%;
+}
+
+/* Filtros e Formulários */
+.consult-form {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+}
+
+#paymentAmount,
+#pixCode {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#pixCode,
+#paymentAmount {
+  display: none;
+}
