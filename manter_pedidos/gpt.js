@@ -157,6 +157,70 @@ function editOrder(orderId) {
   }
 }
 
+document.getElementById("pizza").addEventListener("change", updatePizzaImage);
+document
+  .getElementById("acompanhamento")
+  .addEventListener("change", updateAcompanhamentoImage);
+
+// Função para atualizar a imagem da pizza
+function updatePizzaImage() {
+  const pizzaSelect = document.getElementById("pizza");
+  const pizzaImg = document.getElementById("pizzaImg");
+  const pizzaValue = pizzaSelect.value;
+
+  // Defina os caminhos das imagens com base na seleção
+  const pizzaImages = {
+    formiga: "imagens/formiga.png",
+    javali: "imagens/javali.jpg",
+    jacare: "imagens/jacare.jpg",
+    macaco: "imagens/macaco.jpg",
+    mandioca: "imagens/mandioca.jpg",
+    ema: "imagens/ema.jpg",
+    cacique: "imagens/cacique.png",
+    tucunare: "imagens/tucunare.jpg",
+    tambaqui: "imagens/tambaqui.jpg",
+    pirarara: "imagens/pirarara.jpg",
+    cachorra: "imagens/cachorra.jpg",
+  };
+
+  // Se a pizza selecionada tiver uma imagem, mostre-a
+  if (pizzaImages[pizzaValue]) {
+    pizzaImg.src = pizzaImages[pizzaValue];
+    pizzaImg.style.display = "block"; // Torna a imagem visível
+  } else {
+    pizzaImg.style.display = "none"; // Oculta a imagem caso não haja correspondência
+  }
+}
+
+// Função para atualizar a imagem do acompanhamento
+function updateAcompanhamentoImage() {
+  const acompSelect = document.getElementById("acompanhamento");
+  const acompImg = document.getElementById("acompImg");
+  const acompValue = acompSelect.value;
+
+  // Defina os caminhos das imagens com base na seleção
+  const acompImages = {
+    cauim: "imagens/cauim.png",
+    caxiri: "imagens/caxiri.jpeg",
+    tiquira: "imagens/tiquira.jpg",
+    pajuaru: "imagens/pajuaru.jpg",
+    kauixi: "imagens/kauixi.jpg",
+    alua: "imagens/alua.jpg",
+    chicha: "imagens/chicha.jpg",
+  };
+
+  // Se o acompanhamento selecionado tiver uma imagem, mostre-a
+  if (acompImages[acompValue]) {
+    acompImg.src = acompImages[acompValue];
+    acompImg.style.display = "block"; // Torna a imagem visível
+  } else {
+    acompImg.style.display = "none"; // Oculta a imagem caso não haja correspondência
+  }
+}
+
+// Adicionar o evento de submit ao formulário para criar o pedido
+document.getElementById("orderForm").addEventListener("submit", createOrder);
+
 // Função para remover um pedido
 function removeOrder(orderId) {
   orders = orders.filter((o) => o.orderId !== orderId);

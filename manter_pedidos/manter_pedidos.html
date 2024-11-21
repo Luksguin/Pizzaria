@@ -48,9 +48,13 @@
         <option value="cachorra">Pizza de Cachorra</option>
       </select>
 
+      <div id="pizzaImage" style="margin-top: 10px;">
+        <img id="pizzaImg" src="" alt="Imagem da pizza" style="max-width: 100%; display: none;">
+      </div>
+
       <label for="acompanhamento">Acompanhamento:</label>
       <select id="acompanhamento" required>
-        <option value="cauim">Nenhum</option>
+        <option value="nenhum">Nenhum</option>
         <option value="cauim">Cauim</option>
         <option value="caxiri">Caxiri</option>
         <option value="tiquira">Tiquira</option>
@@ -59,6 +63,10 @@
         <option value="alua">Aluá</option>
         <option value="chicha">Chicha</option>
       </select>
+
+      <div id="acompanhamentoImage" style="margin-top: 10px;">
+        <img id="acompImg" src="" alt="Imagem do acompanhamento" style="max-width: 100%; display: none;">
+      </div>
 
       <label for="paymentMethod">Forma de Pagamento:</label>
       <select id="paymentMethod" required onchange="togglePaymentFields()">
