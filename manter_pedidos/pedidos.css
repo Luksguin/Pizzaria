@@ -123,3 +123,11 @@ select {
 #paymentAmount {
   display: none;
 }
+
+#pizzaImage img,
+#acompanhamentoImage img {
+  max-width: 100%; /* Tamanho máximo para garantir que as imagens não ultrapassem os limites da página */
+  border-radius: 8px; /* Um toque de suavidade nas bordas */
+  margin-top: 10px;
+  display: none; /* Inicialmente, as imagens não são exibidas */
+}
