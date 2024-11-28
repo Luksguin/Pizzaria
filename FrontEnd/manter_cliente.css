@@ -41,7 +41,7 @@ input[type="radio"] {
 button {
   margin-top: 20px;
   padding: 10px;
-  background-color: #d92c2c;
+  background-color: #3556ea;
   color: white;
   border: none;
   border-radius: 4px;
@@ -49,7 +49,7 @@ button {
 }
 
 button:hover {
-  background-color: #d92c2c;
+  background-color: #3be9e3;
 }
 
 table {

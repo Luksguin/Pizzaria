@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultar Feedbacks</title>
+  <link rel="stylesheet" href="consulta_feedADM.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .header {
+      background: #37573D;
+      color: #fff;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      line-height: 80px;
+      background: #6493eb;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .nav-links li {
+      margin: 0 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 0.5rem 0;
+      line-height: 80px;
+    }
+
+    .nav-links a:hover {
+      color: #7AAA74;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: row;
+      cursor: pointer;
+      align-items: center;
+    }
+
+    .menu-toggle .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px;
+      transition: all 0.3s ease;
+    }
+
+    /* Media Query para dispositivos móveis */
+    @media (max-width: 768px) {
+      .navbar {
+        justify-content: space-between;
+        padding: 0 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #37573D;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: max-height 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        z-index: 10;
+      }
+
+      .nav-links.active {
+        display: flex;
+        max-height: 320px;
+      }
+
+      .nav-links li {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="manter_filiais_com_menu.html">Filiais</a></li>
+        <li><a href="manter_cliente.html">Clientes</a></li>
+        <li><a href="consulta_feedADM.html">Feedback</a></li>
+        <li><a href="gerar_relatorio.html">Gerar Relatório</a></li>
+      </ul>
+      <div class="menu-toggle" id="mobile-menu" aria-label="Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+
+  <body>
+
+    <div class="container">
+      <h1>Consulta de Feedbacks - Pizzaria MIM COMER PIZZA</h1>
+
+      <!-- Formulário de Consulta de Feedback -->
+      <h2>Consultar Feedback</h2>
+      <form id="searchForm">
+        <!-- Filtro por nome -->
+        <label for="searchName">Nome do Cliente:</label>
+        <input type="text" id="searchName" placeholder="Nome do cliente">
+
+        <!-- Filtro por data -->
+        <label for="searchDate">Data do Feedback:</label>
+        <input type="date" id="searchDate">
+
+        <!-- Filtro de ordenação -->
+        <label for="sortBy">Ordenar por:</label>
+        <select id="sortBy">
+          <option value="dateAsc">Data - Mais antiga</option>
+          <option value="dateDesc">Data - Mais recente</option>
+          <option value="nameAsc">Nome - A a Z</option>
+          <option value="nameDesc">Nome - Z a A</option>
+        </select>
+
+        <button type="submit">Pesquisar</button>
+      </form>
+
+      <hr>
+
+      <!-- Tabela de Feedbacks -->
+      <h2>Lista de Feedbacks</h2>
+      <table id="feedbacksTable">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Data</th>
+            <th>Avaliação</th>
+            <th>Comentário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas dos feedbacks serão inseridas aqui dinamicamente -->
+        </tbody>
+      </table>
+    </div>
+
+    <script src="consulta_feedADM.js"></script>
+
+
+  </body>
+
+</html>

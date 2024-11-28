@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Pedidos - Pizzaria MIM COMER PIZZA</title>
+  <link rel="stylesheet" href="pedidos.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .header {
+      background: #37573D;
+      color: #fff;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      line-height: 80px;
+      background: #6493eb;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .nav-links li {
+      margin: 0 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 0.5rem 0;
+      line-height: 80px;
+    }
+
+    .nav-links a:hover {
+      color: #7AAA74;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: row;
+      cursor: pointer;
+      align-items: center;
+    }
+
+    .menu-toggle .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px;
+      transition: all 0.3s ease;
+    }
+
+    /* Media Query para dispositivos móveis */
+    @media (max-width: 768px) {
+      .navbar {
+        justify-content: space-between;
+        padding: 0 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #37573D;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: max-height 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        z-index: 10;
+      }
+
+      .nav-links.active {
+        display: flex;
+        max-height: 320px;
+      }
+
+      .nav-links li {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="manter_filiais_com_menu.html">Filiais</a></li>
+        <li><a href="manter_cliente.html">Clientes</a></li>
+        <li><a href="consulta_feedADM.html">Feedback</a></li>
+        <li><a href="gerar_relatorio.html">Gerar Relatório</a></li>
+      </ul>
+      <div class="menu-toggle" id="mobile-menu" aria-label="Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+
+  <body>
+
+    <div class="container">
+      <h1>Cadastro de Pedidos - Pizzaria MIM COMER PIZZA</h1>
+
+      <!-- Formulário de Criação de Pedido -->
+      <form id="orderForm">
+        <label for="clientName">Nome do Cliente:</label>
+        <input type="text" id="clientName" maxlength="32" required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" maxlength="14" placeholder="Somente números" required>
+
+        <!-- Mensagem de validação do CPF -->
+        <p id="resultCpf" style="font-weight: bold; margin-top: 5px;"></p>
+
+        <label for="address">Endereço:</label>
+        <input type="text" id="address" maxlength="64" required>
+
+        <label for="number">Número:</label>
+        <input type="number" id="number" required>
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" maxlength="10" placeholder="XXXXX-XXX" required>
+
+        <label for="pizza">Pizza:</label>
+        <select id="pizza" required>
+          <option value="formiga">Pizza de Formiga</option>
+          <option value="javali">Pizza de Javali</option>
+          <option value="jacare">Pizza de Jacaré</option>
+          <option value="macaco">Pizza de Macaco</option>
+          <option value="mandioca">Pizza de Mandioca</option>
+          <option value="ema">Pizza de Ema</option>
+          <option value="cacique">Pizza do Cacique</option>
+          <option value="tucunare">Pizza do Tucunaré</option>
+          <option value="tambaqui">Pizza de Tambaqui</option>
+          <option value="pirarara">Pizza de Pirarara</option>
+          <option value="cachorra">Pizza de Cachorra</option>
+        </select>
+
+        <div id="pizzaImage" style="margin-top: 10px;">
+          <img id="pizzaImg" src="" alt="Imagem da pizza" style="max-width: 100%; display: none;">
+        </div>
+
+        <label for="acompanhamento">Acompanhamento:</label>
+        <select id="acompanhamento" required>
+          <option value="nenhum">Nenhum</option>
+          <option value="cauim">Cauim</option>
+          <option value="caxiri">Caxiri</option>
+          <option value="tiquira">Tiquira</option>
+          <option value="pajuaru">Pajuaru</option>
+          <option value="kauixi">Kauixi</option>
+          <option value="alua">Aluá</option>
+          <option value="chicha">Chicha</option>
+        </select>
+
+        <div id="acompanhamentoImage" style="margin-top: 10px;">
+          <img id="acompImg" src="" alt="Imagem do acompanhamento" style="max-width: 100%; display: none;">
+        </div>
+
+        <label for="paymentMethod">Forma de Pagamento:</label>
+        <select id="paymentMethod" required onchange="togglePaymentFields()">
+          <option value="dinheiro">Dinheiro</option>
+          <option value="cartao">Cartão</option>
+          <option value="pix">PIX</option>
+        </select>
+
+        <label for="paymentAmount" id="paymentAmountLabel" style="display: none;">Valor (se Dinheiro):</label>
+        <input type="number" id="paymentAmount" placeholder="Valor a pagar" style="display: none;">
+
+        <label for="observations">Observações:</label>
+        <textarea id="observations" maxlength="256"></textarea>
+
+        <button type="submit">Criar Pedido</button>
+      </form>
+
+      <hr>
+
+      <!-- Área de Consulta -->
+      <h2>Consultar Pedidos</h2>
+      <div class="consult-form">
+        <label for="searchName">Buscar por Nome do Cliente:</label>
+        <input type="text" id="searchName" placeholder="Nome do cliente">
+
+        <label for="searchOrderId">Buscar por ID do Pedido:</label>
+        <input type="text" id="searchOrderId" placeholder="ID do pedido">
+
+        <button onclick="searchOrder()">Pesquisar</button>
+      </div>
+
+      <hr>
+
+      <!-- Tabela de Pedidos -->
+      <h2>Lista de Pedidos</h2>
+      <table id="ordersTable">
+        <thead>
+          <tr>
+            <th>ID do Pedido</th>
+            <th>Nome do Cliente</th>
+            <th>Produto</th>
+            <th>Forma de Pagamento</th>
+            <th>Observações</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas dos pedidos serão inseridas aqui dinamicamente -->
+        </tbody>
+      </table>
+    </div>
+
+    <script src="gpt.js"></script>
+
+  </body>
+
+</html>

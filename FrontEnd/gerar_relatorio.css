@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.report-selection {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.report-selection label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.report-selection select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.file-input {
+  margin: 20px 0;
+  text-align: center;
+}
+
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#reportContainer {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+#chartContainer {
+  margin: 20px 0;
+  text-align: center;
+  width: 100%; /* O contêiner ocupa toda a largura disponível */
+}
+
+canvas {
+  width: 100% !important; /* O gráfico ocupa toda a largura do contêiner */
+  height: auto !important; /* Altura proporcional à largura */
+  max-width: 800px; /* Largura máxima (opcional, para limitar o tamanho) */
+  margin: auto;
+}
+
+.chart-options {
+  margin: 20px 0;
+  text-align: center;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+/*--------------------------------------------------------*/
+
+.date-filter {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.date-filter label {
+  margin-right: 10px;
+}
+
+.date-filter input,
+.date-filter button {
+  padding: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.date-filter button {
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#singleFilialSelect {
+  display: none;
+}

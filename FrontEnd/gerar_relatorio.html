@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Relatórios</title>
+  <link rel="stylesheet" href="gerar_relatorio.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .header {
+      background: #37573D;
+      color: #fff;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      line-height: 80px;
+      background: #6493eb;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .nav-links li {
+      margin: 0 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 0.5rem 0;
+      line-height: 80px;
+    }
+
+    .nav-links a:hover {
+      color: #7AAA74;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: row;
+      cursor: pointer;
+      align-items: center;
+    }
+
+    .menu-toggle .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px;
+      transition: all 0.3s ease;
+    }
+
+    /* Media Query para dispositivos móveis */
+    @media (max-width: 768px) {
+      .navbar {
+        justify-content: space-between;
+        padding: 0 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #37573D;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: max-height 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        z-index: 10;
+      }
+
+      .nav-links.active {
+        display: flex;
+        max-height: 320px;
+      }
+
+      .nav-links li {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        text-align: center;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="manter_filiais_com_menu.html">Filiais</a></li>
+        <li><a href="manter_cliente.html">Clientes</a></li>
+        <li><a href="consulta_feedADM.html">Feedback</a></li>
+        <li><a href="gerar_relatorio.html">Gerar Relatório</a></li>
+      </ul>
+      <div class="menu-toggle" id="mobile-menu" aria-label="Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Gerador de Relatórios</h1>
+
+    <!-- Seletor de tipo de relatório -->
+    <div class="report-selection">
+      <label for="reportType">Tipo de Relatório:</label>
+      <select id="reportType" name="reportType">
+        <option value="financeiro_mes">Relatório Financeiro (meses)</option>
+        <option value="financeiro_ano">Relatório Financeiro (anos)</option>
+        <option value="vendas">Relatório de Vendas</option>
+      </select>
+    </div>
+
+    <!-- Entrada para carregar arquivo -->
+    <div class="file-input">
+      <label for="fileInput">Carregar Arquivo Excel:</label>
+      <input type="file" id="fileInput">
+    </div>
+
+    <div id="reportContainer">
+      <!-- Tabela gerada será exibida aqui -->
+    </div>
+
+    <!-- Filtro de data -->
+    <div class="date-filter">
+      <label for="startDate">Data Inicial:</label>
+      <input type="date" id="startDate">
+      <label for="endDate">Data Final:</label>
+      <input type="date" id="endDate">
+      <button id="filterButton">Filtrar e Gerar Gráfico</button>
+    </div>
+
+    <!-- Exibição do nome do gerente -->
+    <div id="managerContainer" style="margin-bottom: 20px; font-size: 18px; font-weight: bold;">
+      Gerente: <span id="managerName">N/A</span>
+    </div>
+
+    <!-- Espaço para o gráfico -->
+    <div id="chartContainer">
+      <canvas id="dataChart"></canvas>
+    </div>
+
+    <!-- Seletor de tipo de gráfico -->
+    <div class="chart-options">
+      <label for="chartType">Selecione o Tipo de Gráfico:</label>
+      <select id="chartType">
+        <option value="bar">Barra</option>
+        <option value="line">Linha</option>
+        <option value="pie">Pizza</option>
+        <option value="doughnut">Rosquinha</option>
+      </select>
+    </div>
+  </div>
+
+  <script src="gerar_relatorio.js"></script>
+</body>
+
+</html>
